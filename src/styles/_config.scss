@@ -1,0 +1,125 @@
+@use 'sass:map';
+
+// USER VARIABLES SECTION
+
+$grey: #B4C3D3;
+$green: #00D180;
+$violet: #5100C0;
+$l-grey: #E8EDF1;
+$l-grey2: #D1DDE8;
+$d-grey: #8396A8;
+$d-grey2: #586977;
+$l-green: #45ED94;
+$d-green: #00A376;
+$l-violet: #6B52FF;
+$d-violet: #280068;
+
+$accent: #5100C0; // Accent Color
+$gutter: 30px; // Global Gutter
+$radius: 8px; // Default Radius
+$fontsize: 16px; // Body Font Size
+$lineheight: 1.65; // Document Line Height
+$textcolor: #000; // Text Color
+$userfont: Gilroy, sans-serif; // User Font Family
+$systemfont: -apple-system, BlinkMacSystemFont, Arial, sans-serif; // System Font Family
+
+// FONTS LOAD SECTION
+
+@mixin font($fname, $fstyle, $fweight, $furl) {
+  @font-face {
+    font-family: $fname;
+    font-style: $fstyle;
+    font-weight: $fweight;
+    src: url($furl) format('woff2');
+  }
+}
+
+@include font('Gilroy', normal, 400, '../assets/fonts/Gilroy-Regular.woff2');
+@include font('Gilroy', normal, 500, '../assets/fonts/Gilroy-Medium.woff2');
+@include font('Gilroy', normal, 600, '../assets/fonts/Gilroy-Semibold.woff2');
+@include font('Gilroy', normal, 700, '../assets/fonts/Gilroy-Bold.woff2');
+@include font('Poppins', normal, 500, '../assets/fonts/Poppins-Medium.woff2');
+
+// MIXINS SECTION
+
+// Breakpoints Mixin
+
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1400px
+);
+
+@function breakpoint-min($name, $breakpoints: $grid-breakpoints) {
+  $min: map.get($breakpoints, $name); @return if($min != 0, $min, null);
+}
+@function breakpoint-max($name, $breakpoints: $grid-breakpoints) {
+  $max: map.get($breakpoints, $name); @return if($max and $max > 0, $max - .02, null);
+}
+
+@mixin media-breakpoint-up($name, $breakpoints: $grid-breakpoints) {
+  $min: breakpoint-min($name, $breakpoints);
+  @if $min { @media (min-width: $min) { @content; } } @else { @content; }
+}
+@mixin media-breakpoint-down($name, $breakpoints: $grid-breakpoints) {
+  $max: breakpoint-max($name, $breakpoints);
+  @if $max { @media (max-width: $max) { @content; } } @else { @content; }
+}
+
+// Custom Mixin
+
+
+
+// RESET STYLES SECTION
+
+html {
+	scroll-behavior: smooth;
+}
+
+body {
+  font-family: $userfont;
+  font-size: $fontsize;
+  line-height: $lineheight;
+  color: $textcolor;
+  min-width: 320px;
+  position: relative;
+  overflow-x: hidden;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+::placeholder {
+  color: #666;
+}
+
+::selection {
+  background-color: $accent;
+  color: #fff;
+}
+
+button, input, select, textarea {
+  line-height: inherit;
+  outline: none;
+}
+
+input, textarea {
+  &:focus:required:invalid {
+    border-color: red;
+  }
+  &:required:valid {
+    border-color: green;
+  }
+}
+
+[type=button]:not(:disabled), [type=reset]:not(:disabled), [type=submit]:not(:disabled), button:not(:disabled) {
+  cursor: pointer;
+}

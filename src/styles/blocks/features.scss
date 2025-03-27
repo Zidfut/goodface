@@ -1,0 +1,221 @@
+@use '../config' as *;
+
+.features {
+    
+    &__wrap {
+        width: calc(100% - 10px);
+        max-width: 1360px;
+        margin: 0 auto;
+        border-radius: 0 16px 16px 16px;
+        position: relative;
+        
+        &--l-grey {
+            background-color: $l-grey;
+        }
+
+        .container {
+            padding: 0 35px;
+        }
+    }
+
+    &__item {
+        // height: 712px;
+        overflow: hidden;
+    }
+
+    &__tabs {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        
+        &-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 56px;
+            width: 356px;
+            background-color: $l-grey2;
+            border-radius: 16px 16px 0 0;
+
+            &.active {
+                background-color: $l-grey;
+                pointer-events: none;
+                
+                .text {
+                    color: #000;
+                }
+            }
+
+            &:not(.active) {
+                cursor: pointer;
+            }
+
+            .text {
+                color: rgba(#000, .5);
+            }
+        }
+    }
+
+    &__content {
+        padding: 60px 0;
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        column-gap: 16px;
+
+        &-left,
+        &-right {
+            width: 50%;
+        }
+
+        &-left {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: flex-start;
+        }
+
+        &-icon {
+            display: block;
+            height: 72px;
+            width: 72px;
+            border-radius: 50%;
+            background-repeat: no-repeat;
+            background-position: center;
+            margin-bottom: 40px;
+
+            &--d-grey {
+                background-color: $d-grey;
+            }
+        }
+
+        &-title {
+            text-wrap-style: balance;
+            margin-bottom: 16px;
+        }
+
+        &-description {
+            text-wrap-style: balance;
+            color: rgba(#000, .7);
+            margin-bottom: 64px;
+        }
+
+        &-right {
+            position: relative;
+            border-radius: 8px;
+            overflow: hidden;
+            
+            &::after {
+                content: '';
+                display: block;
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                top: 0;
+                left: 0;
+                background: linear-gradient(180deg, rgba(0,0,0,0.3981967787114846) 0%, rgba(0,0,0,0.19931722689075626) 100%);
+            }
+
+        }
+
+        &-img {
+            display: block;
+            width: 100%;
+        }
+
+    }
+
+    &__buttons {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        column-gap: 16px;
+    }
+
+    &__progress {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        row-gap: 16px;
+        position: absolute;
+        top: 60px;
+        bottom: 60px;
+        right: 10px;
+
+        &-current,
+        &-total {
+            font-size: 12px;
+            line-height: 100%;
+            letter-spacing: normal;
+            font-weight: 600;
+            color: #000;
+        }
+
+        &-total {
+            color: $d-grey;
+        }
+
+        &-wrap {
+            height: 100%;
+            width: 1px;
+            background-color: $grey;
+            position: relative;
+            
+        }
+
+        &-line {
+            display: block;
+            width: 3px;
+            height: 50%;
+            position: absolute;
+            top: 0;
+            left: -1px;
+            background-color: $d-grey;
+            border-radius: 8px;
+        }
+    }
+
+    @include media-breakpoint-down(xl) {
+        &__tabs {
+            
+            &-item {
+                height: 50px;
+                width: 320px;
+                border-radius: 16px 16px 0 0;
+
+                .text {
+                    font-size: 22px;
+                }
+            }
+        }
+
+        &__content {
+            padding: 50px 0;
+    
+            &-icon {
+                height: 72px;
+                width: 72px;
+                margin-bottom: 30px;
+            }
+    
+            &-title {
+                font-size: 54px;
+            }
+    
+            &-description {
+                margin-bottom: 40px;
+            }
+    
+        }
+
+        &__buttons {
+            column-gap: 12px;
+            .btn {
+                font-size: 17px;
+            }
+        }
+    
+    }
+}
