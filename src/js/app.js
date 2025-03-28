@@ -6,6 +6,7 @@ import ScrollTrigger from "gsap/ScrollTrigger";
 
 const headerMenu = document.querySelector('.header__menu');
 const headerNav = document.querySelector('.header__nav');
+const body = document.querySelector('body');
 headerMenu.addEventListener('click', function(){
     if (headerMenu.classList.contains("active")) {
         this.classList.add('closed');
@@ -13,6 +14,7 @@ headerMenu.addEventListener('click', function(){
         this.classList.remove('closed');
     }
     this.classList.toggle('active');
+    body.classList.toggle('no-scroll');
     headerNav.classList.toggle('active');
 });
 

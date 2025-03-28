@@ -11,9 +11,11 @@
 	// padding-left: math.div($gutter, 2);
 	// padding-right: math.div($gutter, 2);
 
-	// @include media-breakpoint-down(lg) {
-	// 	max-width: 1080px;
-	// }
+	@include media-breakpoint-down(lg) {
+		max-width: calc(1280px + #{$gutter});
+		padding-left: math.div($gutter, 2);
+		padding-right: math.div($gutter, 2);
+	}
 
 	// @include media-breakpoint-up(xxl) {
 	// 	max-width: calc(1280px + 120px);
