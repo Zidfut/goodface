@@ -1,1 +1,267 @@
 @use '../config' as *;
+
+.advantages {
+    padding-bottom: 160px;
+
+    &__slider {
+        position: relative;
+
+        &-card {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: flex-start;
+            height: 360px;
+            width: 100%;
+            background-color: $l-grey;
+            border-radius: 8px;
+            padding: 40px;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        &-title {
+            font-size: 20px;
+            line-height: 130%;
+            letter-spacing: normal;
+            font-weight: 600;
+            margin-bottom: 16px;
+
+            span {
+                font-size: 56px;
+                line-height: 110%;
+                letter-spacing: -0.02em;
+                font-weight: 600;
+                margin-right: 10px;
+            }
+        }
+
+        &-description.text {
+            max-width: 360px;
+            color: rgba($color: #000000, $alpha: .7);
+        }
+
+        &-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background-color: $grey;
+            margin-top: auto;
+            align-self: flex-end;
+        }
+
+        &-buttons {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+
+            &-card {
+                width: 60%;
+                max-width: 720px;
+                pointer-events: none;
+            }
+        }
+
+        &-btn {
+            height: 100%;
+            width: 100%;
+            position: relative;
+            z-index: 3;
+            flex-basis: 0;
+            flex-grow: 1;
+        }
+
+        &-next {
+            &:hover {
+                cursor: url('../../assets/img/cursor-right.svg') 40 40, pointer;
+            }
+        }
+
+        &-prev {
+            &:hover {
+                cursor: url('../../assets/img/cursor-left.svg') 40 40, pointer;
+            }
+        }
+
+        &-dots {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            column-gap: 6px;
+            height: 22px;
+            padding: 0 8px;
+            border-radius: 40px;
+            border: 1px solid $grey;
+            
+            &-wrap {
+                display: flex;
+                align-items: center;
+                justify-content: center; 
+                margin: 40px auto 0;
+            }
+
+            .swiper-pagination-bullet {
+                display: block;
+                width: 6px;
+                height: 6px;
+                background-color: $grey;
+                border-radius: 50%;
+            }
+
+            .swiper-pagination-bullet-active {
+                background-color: #000;
+            }
+        }
+
+        .swiper-slide {
+            width: 60%;
+            max-width: 720px;
+            cursor: default;
+        }
+
+        .slider-container {
+            width: 100vw;
+            overflow: visible;
+        }
+        
+        .swiper {
+            width: 100%;
+        }
+        
+        .swiper-slide-prev,
+        .swiper-slide-next {
+            .advantages__slider-card {
+                opacity: 0.4;
+                transform: scale(0.83);
+            }
+        }
+    }
+
+    @include media-breakpoint-down(xl) {
+        &__slider {    
+            &-card {
+                height: 340px;
+            }
+        }
+    }
+
+    @include media-breakpoint-down(lg) {
+        padding-bottom: 120px;
+        &__slider {    
+            &-card {
+                height: 300px;
+                padding: 30px;
+            }
+
+            &-title {
+                span {
+                    font-size: 48px;
+                    margin-right: 5px;
+                }
+            }
+
+            &-icon {
+                width: 70px;
+                height: 70px;
+            }
+            
+        }
+    }
+
+    @include media-breakpoint-down(md) {
+        padding-bottom: 100px;
+        
+        &__slider {    
+            &-card {
+                height: 260px;
+                padding: 20px;
+            }
+
+            &-title {
+                font-size: 18px;
+                span {
+                    font-size: 38px;
+                    margin-right: 5px;
+                }
+            }
+
+            &-description.text {
+                font-size: 14px;
+                max-width: 100%;
+                text-wrap-style: balance;
+            }
+
+            &-icon {
+                width: 60px;
+                height: 60px;
+                img {
+                    width: 50%;
+                }
+            }
+
+            &-buttons {    
+                &-card {
+                    width: 70%;
+                }
+            }
+
+            .swiper-slide {
+                width: 70%;
+            }
+    
+            
+        }
+    }
+
+    @include media-breakpoint-down(sm) {
+        padding-bottom: 80px;
+        
+        &__slider {    
+            &-card {
+                height: 220px;
+            }
+
+            &-title {
+                font-size: 16px;
+                margin-bottom: 12px;
+                span {
+                    display: block;
+                    font-size: 32px;
+                    margin-right: initial;
+                }
+            }
+
+            &-description.text {
+                font-size: 12px;
+            }
+
+            &-icon {
+                width: 40px;
+                height: 40px;
+            }
+
+            &-buttons {    
+                &-card {
+                    width: 80%;
+                }
+            }
+
+            .swiper-slide {
+                width: 80%;
+            }
+    
+            &-dots {               
+                &-wrap {
+                    margin: 20px auto 0;
+                }
+            }
+        }
+    }
+}

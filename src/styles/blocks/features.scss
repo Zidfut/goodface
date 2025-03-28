@@ -21,6 +21,11 @@
     &__item {
         height: 712px;
         overflow: hidden;
+        display: none;
+
+        &.active {
+            display: block;
+        }
     }
 
     &__tabs {
@@ -133,7 +138,7 @@
                     background-color: $green;
                     border-radius: 50%;
                     margin-right: 0.6em;
-                    background-image: url('../../assets/img/check-list.svg');
+                    background-image: url('../../assets/img/features-list.svg');
                     background-repeat: no-repeat;
                     background-position: center;
                     background-size: 0.5em;

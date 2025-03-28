@@ -33,5 +33,5 @@ export default defineConfig({
     outDir: '../dist',
   },
   root: 'src',
-  base: '',
+  base: '/repo-name/',
 })
