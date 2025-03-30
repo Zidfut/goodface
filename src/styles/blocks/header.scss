@@ -59,6 +59,18 @@
 		align-items: center;
 		column-gap: 8px;
 
+		&:hover {
+			.link {
+				color: $violet;
+			}
+			.header__menu-btn {
+				span {
+					background-color: $violet;
+				}
+			}
+		}
+
+
 		&.active {
 			.header__menu-btn {
 
@@ -106,12 +118,6 @@
 			width: 32px;
 			height: 12px;
 			transition: background-color .3s;
-
-			&:hover {
-				span {
-					background-color: $violet;
-				}
-			}
 
 			span {
 				display: block;

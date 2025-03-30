@@ -80,13 +80,13 @@
 
         &-next {
             &:hover {
-                cursor: url('../../assets/img/cursor-right.svg') 40 40, pointer;
+                cursor: url('../assets/img/cursor-right.svg') 40 40, pointer;
             }
         }
 
         &-prev {
             &:hover {
-                cursor: url('../../assets/img/cursor-left.svg') 40 40, pointer;
+                cursor: url('../assets/img/cursor-left.svg') 40 40, pointer;
             }
         }
 
@@ -113,6 +113,7 @@
                 height: 6px;
                 background-color: $grey;
                 border-radius: 50%;
+                cursor: pointer;
             }
 
             .swiper-pagination-bullet-active {

@@ -1,5 +1,4 @@
 @use 'sass:math';
-
 @use '../config' as *;
 
 .accent {
@@ -22,9 +21,9 @@ ul {
 
 .h1, .h2, .h3, .h4 {
 	font-family: Gilroy;
-  font-weight: 600;
-  line-height: 100%;
-  letter-spacing: -0.02em;
+  	font-weight: 600;
+  	line-height: 100%;
+  	letter-spacing: -0.02em;
 }
 
 .h1 {
@@ -167,6 +166,12 @@ ul {
 		&.icon-lock {
 			&::before {
 				background-image: url('../assets/img/lock-icon.svg');
+			}
+
+			&:hover {
+				&::before {
+					background-image: url('../assets/img/lock-icon-violet.svg');
+				}
 			}
 		}
 	}
