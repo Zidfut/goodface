@@ -130,8 +130,8 @@ function animateFeatures(section) {
     y: -section.offsetHeight * (innerBlocks.length - 1),
     ease: "power1.inOut",
     scrollTrigger: {
+      markers: false,
       trigger: featuresBlock,
-      markers: true,
       start: "top 100",
       end: () => `+=${section.offsetHeight * 3}`,
       pin: true,
