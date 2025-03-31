@@ -173,6 +173,11 @@
 
         &__buttons {
             margin-bottom: 20px;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            column-gap: 0;
+            row-gap: 8px;
         }
 
         &__video {
@@ -185,7 +190,8 @@
         &__content {
             width: 100%;
             .btn {
-                font-size: 12px;
+                width: 100%;
+                font-size: 14px;
             }
         }
     }
